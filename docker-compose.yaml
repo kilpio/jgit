@@ -3,6 +3,7 @@ services:
     jenkins:
         build:
             context: ./
+            image: jenkins/kilpio
         restart: unless-stopped
         volumes:
             - ${HOST_DOCKER}:/var/run/docker.sock
@@ -10,12 +11,3 @@ services:
         ports:
             - 8080:8080
             - 50000:50000
-    nginx:
-       image: nginx:latest
-       container_name: nginx
-       volumes:
-         - ${NGINX_CONF}/nginx.conf:/etc/nginx/nginx.conf
-       ports:
-         - 80:80
-         - 8080:8080
-         - 443:443
