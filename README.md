@@ -15,3 +15,13 @@ Test if docker is ok
 docker run hello-world
 docker image rm -f hello-world
 ```
+
+```
+git clone https://github.com/kilpio/jgit/ && cd jgit
+docker-compose build
+```
+```
+mkdir ~/jenkins_home
+```
+
+
