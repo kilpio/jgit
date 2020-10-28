@@ -3,7 +3,6 @@ services:
     jenkins:
         build:
             context: ./
-            image: jenkins/kilpio
         restart: unless-stopped
         volumes:
             - ${HOST_DOCKER}:/var/run/docker.sock
@@ -11,3 +10,5 @@ services:
         ports:
             - 8080:8080
             - 50000:50000
+        environment:
+              - JENKINS_OPTS=--httpPort=-1 --httpsPort=8080 --httpsKeyStore=/var/jenkins_home/keystore/jenkins_keystore.jks --httpsKeyStorePassword=password
