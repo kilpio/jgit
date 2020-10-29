@@ -1,4 +1,4 @@
-FROM jenkins/jenkins
+FROM jenkins/jenkins:lts
 USER root
 RUN apt-get -y update && \
     apt-get -y upgrade && \
@@ -9,8 +9,7 @@ RUN apt-get -y update && \
  $(lsb_release -cs) \
  stable" && \
  apt-get update && \
- apt-get -y install docker-ce docker-ce-cli containerd.io
- apt-get -y install net-tools mc
+ apt-get -y install docker-ce docker-ce-cli containerd.io mc net-tools
 RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
  chmod +x /usr/local/bin/docker-compose && \
  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
