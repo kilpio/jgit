@@ -22,3 +22,5 @@ groupadd -g 1000 $JENKINS_USER
 useradd  -m -u 1000 -g 1000 -s /bin/bash $JENKINS_USER
 usermod -aG docker $JENKINS_USER
 
+mkdir /home/jenkins/jenkins_home
+chown jenkins:jenkins /home/jenkins/jenkins_home
