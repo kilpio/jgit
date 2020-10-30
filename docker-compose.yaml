@@ -1,6 +1,7 @@
 version: '3.1'
 services:
     jenkins:
+        container_name: kilpio_jenkins
         build:
             context: ./
         restart: unless-stopped
@@ -10,5 +11,10 @@ services:
         ports:
             - 8080:8080
             - 50000:50000
+        env_file:
+            - ./.keystore_env
+            - ./.env
         environment:
               - JENKINS_OPTS=--httpPort=-1 --httpsPort=8080 --httpsKeyStore=/var/jenkins_home/keystore/jenkins_keystore.jks --httpsKeyStorePassword=${KEYSTORE_PASS}
+
+ 

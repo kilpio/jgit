@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+rm -rf ${JENKINS_HOME}/keystore/
+rm -rf ${JENKINS_HOME}/openssl/
+
 mkdir openssl && cd openssl
 export MYPASS=$(openssl rand -base64 8 | sed 's/[^a-zA-Z]//g')
 
@@ -23,9 +26,5 @@ chown -R jenkins:jenkins ${JENKINS_HOME}/openssl/
 chmod 700 ${JENKINS_HOME}/keystore/
 chmod 600 ${JENKINS_HOME}/keystore/jenkins_keystore.jks
 
-echo ${"MYPASS"} > ${JENKINS_HOME}/keystorepass
+echo ${MYPASS} > ${JENKINS_HOME}/keystorepass
 
-#rm -rf ${JENKINS_HOME}/keystore/
-#rm -rf ${JENKINS_HOME}/openssl/
-#rm jenkins_keystore.jks
-#rm jenkins_keystore.p12
