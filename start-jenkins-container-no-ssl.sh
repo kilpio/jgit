@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 docker container stop kilpio_jenkins
-docker-compose -f docker-compose-no-ssl.yaml -f docker-compose-switch-to-ssl.yaml up
+docker-compose -f docker-compose-no-ssl.yaml  up -d
 
-sleep 5
-docker ps
