@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-
+docker container stop kilpio_jenkins
 docker-compose -f docker-compose.yaml up -d
-sleep 5
-docker ps
