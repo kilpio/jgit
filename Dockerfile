@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:latest
 USER root
 RUN apt-get -y update && \
     apt-get -y upgrade && \
