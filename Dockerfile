@@ -15,5 +15,9 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-c
  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 COPY ./ssl/make_pks.sh /usr/local/bin/
 COPY ./ssl/openssl.cnf /tmp
+RUN groupadd -g 1000 $JENKINS_USER
+RUN useradd  -m -u 1000 -g 1000 -s /bin/bash $JENKINS_USER
+RUN usermod -aG docker $JENKINS_USER
+
 USER jenkins
  
