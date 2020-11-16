@@ -5,7 +5,7 @@ eval "${JENKINS_DATA}"
 
 echo "Creating new keystore..."
 #docker-compose --remove-orphans -f docker-compose-switch-to-ssl.yaml up jenkins_ssl
-docker-compose -f docker-compose-switch-to-ssl.yaml  up jenkins_ssl
+docker-compose -f docker-compose-switch-to-ssl.yaml up jenkins_ssl
 
 echo "Saving password in the .env file..."
 
