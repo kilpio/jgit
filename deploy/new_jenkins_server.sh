@@ -17,7 +17,7 @@ chmod +x /usr/local/bin/docker-compose && \
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 apt-get -y install mc net-tools
-
+#TODO: check if user/group exist
 groupadd -g 1000 $JENKINS_USER
 useradd  -m -u 1000 -g 1000 -s /bin/bash $JENKINS_USER
 usermod -aG docker $JENKINS_USER
