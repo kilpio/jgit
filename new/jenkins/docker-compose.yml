@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  jenkins:
+    build:
+      context: .
+      args:
+        USER_GROUP_ID: $USER_GROUP_ID
+        USER_ID: $USER_ID
+    ports:
+      - 9080:8080
+    volumes:
+      - $HOME/jenkins_home:/var/jenkins_home
+      - ./bashrc:/var/jenkins_home/.bashrc
